@@ -95,6 +95,22 @@
 </table>
 <p>&nbsp;</p>
 </body>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDdRHPYxHJ558GpIVkO_26SDhisvZaWLEs",
+        authDomain: "bankingsystem-16383.firebaseapp.com",
+        databaseURL: "https://bankingsystem-16383.firebaseio.com",
+        projectId: "bankingsystem-16383",
+        storageBucket: "",
+        messagingSenderId: "538682623520"
+    };
+    firebase.initializeApp(config);
+</script>
+
 <script>
     <!--
     var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "integer", {validateOn:["blur", "change"]});
