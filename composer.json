@@ -7,8 +7,12 @@
     "require": {
         "php": ">=7.0.0",
         "fideloper/proxy": "~3.3",
+        "guzzle/guzzle": "~3.0",
+        "j42/laravel-twilio": "dev-master",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "norris1z/hubtel-laravel-sms-channel": "^1.0",
+        "reliese/laravel": "^0.0.13"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

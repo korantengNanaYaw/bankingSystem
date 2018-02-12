@@ -7,7 +7,7 @@
 
     <link href="css/admin.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
 
 </head>
@@ -22,7 +22,8 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="20">
                 <tr>
                     <td class="contentArea">
-                        <form action="#" method="post" enctype="multipart/form-data" id="acclogin">
+                        <form  id="acclogin">
+                            {{ csrf_field() }}
                             <h2 align="center"><strong> :</strong> Log in to Access your Account</h2>
                             <p align="center">Enter Your Account Login Details to proceed</p>
                             <div class="errorMessage" align="center">&nbsp;</div>
@@ -44,8 +45,7 @@
 			<span id="sprytextfield1" style="text-align:left;">
             <input name="accno" type="text" id="accno" tabindex="10" size="30" maxlength="30" />
             <br/>
-            <span class="textfieldRequiredMsg">Account Number is required.</span>
-			<span class="textfieldInvalidFormatMsg">Invalid Account Number.</span>
+
 			</span>
                                                 </td>
                                             </tr>
@@ -55,9 +55,8 @@
                                                 <td>
 			<span id="sprypassword1" style="text-align:left;">
               <input name="pass" type="password" id="pass" tabindex="20" size="30" /><br />
-              <span class="passwordRequiredMsg">Password is required.</span>
-			  <span class="passwordMinCharsMsg">You must specify at least 6 characters.</span>
-			  <span class="passwordMaxCharsMsg">You must specify at max 10 characters.</span>
+
+
 			</span>
                                                 </td>
                                             </tr>
@@ -70,7 +69,7 @@
 
                                             <tr>
                                                 <td colspan="3">
-                                                    If your account is not register with us, please <a href="register.php">Register it Now</a>.
+                                                    If your account is not register with us, please <a href="/register">Register it Now</a>.
                                                 </td>
                                             </tr>
 
@@ -97,24 +96,73 @@
 </body>
 
 
-<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyDdRHPYxHJ558GpIVkO_26SDhisvZaWLEs",
-        authDomain: "bankingsystem-16383.firebaseapp.com",
-        databaseURL: "https://bankingsystem-16383.firebaseio.com",
-        projectId: "bankingsystem-16383",
-        storageBucket: "",
-        messagingSenderId: "538682623520"
-    };
-    firebase.initializeApp(config);
-</script>
 
-<script>
-    <!--
-    var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "integer", {validateOn:["blur", "change"]});
-    var sprypassword1 = new Spry.Widget.ValidationPassword("sprypassword1", {minChars:6, maxChars: 12, validateOn:["blur", "change"]});
-    //-->
-</script>
+<!-- Modal -->
+
+
+
+<div class="modal " id="myModal" role="dialog" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog modal-md">
+        <div style="display: inline-block;text-align: center;"  class="modal-content">
+            <div style="position: relative;"  class="modal-header">
+                <div style="position: relative;" >
+                    <img src="/images/smartphone.png" alt="Smiley face" height="42" width="42">
+                </div>
+
+
+                <br>
+
+                <div style="position: relative;" >
+    <h5  id="modalheaderMessage" style="text-align: center"> A confirmation code has been sent to your phone number</h5>
+
+</div>
+
+            </div>
+            <div  class="modal-body">
+
+
+
+
+                <form    role="form">
+                    <div  class="form-group">
+
+
+
+                        <div class="col-md-12 " align="center">
+                            <input type="email" class="form-control"
+                                   id="inputEmail3" placeholder="Enter Code"/>
+                        </div>
+
+                        <div style="height: 20px"></div>
+
+
+
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+
+
+                <div  class="col-md-10 control-label">
+
+                    <button type="button"  onclick="verifyPin(document.getElementById('inputEmail3').value)" class="btn btn-primary">Confirm Code</button>
+                    <button type="button" onclick="resendPin()" class="btn btn-danger">Resend Code</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/moment.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/ajaxsearch.js"></script>
+
+
 </html>

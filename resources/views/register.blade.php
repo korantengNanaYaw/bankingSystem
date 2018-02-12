@@ -7,21 +7,8 @@
 
     <link href="css/admin.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <link href="library/spry/textfieldvalidation/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-    <script src="library/spry/textfieldvalidation/SpryValidationTextField.js" type="text/javascript"></script>
-
-    <link href="library/spry/passwordvalidation/SpryValidationPassword.css" rel="stylesheet" type="text/css" />
-    <script src="library/spry/passwordvalidation/SpryValidationPassword.js" type="text/javascript"></script>
-
-    <link href="library/spry/selectvalidation/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
-    <script src="library/spry/selectvalidation/SpryValidationSelect.js" type="text/javascript"></script>
-
-    <link href="library/spry/textareavalidation/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
-    <script src="library/spry/textareavalidation/SpryValidationTextarea.js" type="text/javascript"></script>
-
-    <link href="library/spry/confirmvalidation/SpryValidationConfirm.css" rel="stylesheet" type="text/css" />
-    <script src="library/spry/confirmvalidation/SpryValidationConfirm.js" type="text/javascript"></script>
 
 </head>
 
@@ -35,7 +22,12 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="20">
                 <tr>
                     <td class="contentArea">
-                        <form action="#" method="post" enctype="multipart/form-data" id="acclogin">
+                        @if($errors->any())
+                            <h1 style="color: red;text-align: center">{{$errors->first()}}</h1>
+                        @endif
+
+                        <form action="/EbankingRegister" method="post" enctype="multipart/form-data" id="accregister">
+                            {{ csrf_field() }}
                             <h2 align="center"><strong>Register Account: </strong></h2>
                             <p align="center">Please register your account with us to take the benefits of our Online Banking facelities.</p>
                             <div class="errorMessage" align="center">&nbsp;</div>
@@ -292,44 +284,9 @@
 </table>
 <p>&nbsp;</p>
 </body>
-<script type="text/javascript">
-    <!--
-    //Firstname
-    var sprytf_firstname = new Spry.Widget.ValidationTextField("sprytf_firstname", 'none', {validateOn:["blur", "change"]});
-    //Lastname
-    var sprytf_lastname = new Spry.Widget.ValidationTextField("sprytf_lastname", 'none', {validateOn:["blur", "change"]});
-    //Password
-    var sprypass1 = new Spry.Widget.ValidationPassword("sprypwd", {minChars:6, maxChars: 12, validateOn:["blur", "change"]});
-    //Confirm Password
-    var spryconf1 = new Spry.Widget.ValidationConfirm("sprycpwd", "sprypwd", {minChars:6, maxChars: 12, validateOn:["blur", "change"]});
-    //Email ID
-    var spryemail = new Spry.Widget.ValidationTextField("sprytf_email", 'email', {validateOn:["blur", "change"]});
-    //Phone Number
-    var spryphone = new Spry.Widget.ValidationTextField("sprytf_phone", 'phone_number', {useCharacterMasking: true, validateOn:["blur", "change"]});
-    //Date of Birth
-    var sprydob = new Spry.Widget.ValidationTextField("sprytf_dob", 'date', {format:"mm-dd-yyyy", useCharacterMasking: true, validateOn:["blur", "change"]});
-    //Gender
-    var sprygender = new Spry.Widget.ValidationSelect("spryselect_gender");
-
-
-    //address
-    var spry_ad = new Spry.Widget.ValidationTextarea("spryta_address", {isRequired:true});
-    //city
-    var sprytf_city = new Spry.Widget.ValidationTextField("sprytf_city", 'none', {validateOn:["blur", "change"]});
-    //State
-    var sprytf_state = new Spry.Widget.ValidationTextField("sprytf_state", 'none', {validateOn:["blur", "change"]});
-    //ZipCode
-    var sprytf_zip = new Spry.Widget.ValidationTextField("sprytf_zip", 'integer', {validateOn:["blur", "change"]});
-
-    //Account Type
-    var spryselect1 = new Spry.Widget.ValidationSelect("spryselect_acctype");
-    //Account Number
-    var spry_accno = new Spry.Widget.ValidationTextField("sprytf_accno", 'integer', {minChars:8, maxChars: 12, validateOn:["blur", "change"]});
-
-    var spry_pin = new Spry.Widget.ValidationTextField("sprytf_pin", 'integer', {minChars:4, maxChars: 6, validateOn:["blur", "change"]});
-    //Confirm Password
-    var spry_cpin = new Spry.Widget.ValidationConfirm("sprytf_cpin", "sprytf_pin", {minChars:4, maxChars: 6, validateOn:["blur", "change"]});
-
-    //-->
-</script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/moment.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/ajaxsearch.js"></script>
 </html>

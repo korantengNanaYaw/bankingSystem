@@ -23,3 +23,11 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+Route::post('EbankingLogin/',['uses' => 'EbankingController@Login']);
+Route::post('EbankingRegister/',['uses' => 'EbankingController@Register']);
+Route::get('verifyLoginCode/{code}',['uses' => 'EbankingController@verifyCode']);
+Route::get('dashboard/', function () {
+    return view('dashboard');
+});
+Route::get('resendPin/',['uses' => 'EbankingController@resendPin']);
